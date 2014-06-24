@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BaseGameEntity.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="IState.cs" />
     <Compile Include="Miner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
