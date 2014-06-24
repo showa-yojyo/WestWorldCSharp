@@ -3,10 +3,6 @@
 //   (http://www.jblearning.com/catalog/9781556220784/)
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WestWorld
 {
@@ -44,6 +40,15 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Enter(Miner miner)
         {
+            // If the miner is not already located at the goldmine, he must
+            // change location to the gold mine
+            if(miner.Location != LocationType.Goldmine)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("{0}: Walkin' to the goldmine", miner.Name);
+
+                miner.Location = LocationType.Goldmine;
+            }
         }
 
         /// <summary>
@@ -52,6 +57,26 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Execute(Miner miner)
         {
+            // The miner digs for gold until he is carrying in excess of MaxNuggets. 
+            // If he gets thirsty during his digging he packs up work for a while and 
+            // changes state to go to the saloon for a whiskey.
+            ++miner.GoldCarried;
+
+            miner.IncreaseFatigue();
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("{0}: Pickin' up a nugget", miner.Name);
+
+            // If enough gold mined, go and put it in the bank.
+            if(miner.PocketsFull())
+            {
+                miner.ChangeState(VisitBankAndDepositGold.Instance);
+            }
+
+            if(miner.Thirsty())
+            {
+                miner.ChangeState(QuenchThirst.Instance);
+            }
         }
 
         /// <summary>
@@ -60,6 +85,8 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Exit(Miner miner)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("{0}: Ah'm leavin' the goldmine with mah pockets full o' sweet gold");
         }
     }
 }

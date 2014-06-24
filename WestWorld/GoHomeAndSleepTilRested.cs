@@ -3,10 +3,6 @@
 //   (http://www.jblearning.com/catalog/9781556220784/)
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WestWorld
 {
@@ -39,11 +35,11 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Enter(Miner miner)
         {
-            if(miner.LocationType != LocationType.Shack)
+            if(miner.Location != LocationType.Shack)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("{0}: Walkin' home", miner.Name);
-                miner.LocationType = LocationType.Shack;
+                miner.Location = LocationType.Shack;
             }
         }
 

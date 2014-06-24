@@ -39,7 +39,7 @@ namespace WestWorld
         /// <summary>
         /// 
         /// </summary>
-        public LocationType LocationType { get; set; }
+        public LocationType Location { get; set; }
 
         private int goldCarried;
 
@@ -97,7 +97,7 @@ namespace WestWorld
         public Miner(int id)
             : base(id)
         {
-            LocationType = LocationType.Shack;
+            Location = LocationType.Shack;
             CurrentState = GoHomeAndSleepTilRested.Instance;
         }
 
