@@ -2,12 +2,7 @@
 //   Programming Game AI by Example, Mat Buckland, 2002.
 //   (http://www.jblearning.com/catalog/9781556220784/)
 
-using System;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WestWorld
 {
@@ -39,7 +34,7 @@ namespace WestWorld
         /// <summary>
         /// TODO
         /// </summary>
-        //private IState CurrentState { get; set; }
+        private IState CurrentState { get; set; }
 
         /// <summary>
         /// 
@@ -112,11 +107,10 @@ namespace WestWorld
         {
             ++Thirst;
 
-            // TODO: 
-            //if(CurrentState)
-            //{
-            //    CurrentState.Execute(this);
-            //}
+            if(CurrentState != null)
+            {
+                CurrentState.Execute(this);
+            }
         }
 
         /// <summary>
@@ -125,12 +119,25 @@ namespace WestWorld
         /// <param name="state"></param>
         /// <remarks>
         ///  It first calls the Exit() method of the current state, then assigns the
-        ///  new state to m_pCurrentState and finally calls the Entry()
+        ///  new state to CurrentState and finally calls the Entry()
         ///  method of the new state.
         ///</remarks>
-        //public void ChangeState(IState state)
-        //{
-        //}
+        public void ChangeState(IState state)
+        {
+            // make sure both states are both valid before attempting to 
+            // call their methods
+            Debug.Assert(CurrentState != null);
+            Debug.Assert(state != null);
+
+            // call the exit method of the existing state
+            CurrentState.Exit(this);
+
+            // change state to the new state
+            CurrentState = state;
+
+            // call the entry method of the new state
+            CurrentState.Enter(this);
+        }
 
         //public void AddToGoldCarried(int val)
         
