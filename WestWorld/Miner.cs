@@ -98,6 +98,7 @@ namespace WestWorld
             : base(id)
         {
             LocationType = LocationType.Shack;
+            CurrentState = GoHomeAndSleepTilRested.Instance;
         }
 
         /// <summary>

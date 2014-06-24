@@ -43,10 +43,14 @@
   <ItemGroup>
     <Compile Include="BaseGameEntity.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="EnterMineAndDigForNugget.cs" />
+    <Compile Include="GoHomeAndSleepTilRested.cs" />
     <Compile Include="IState.cs" />
     <Compile Include="Miner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuenchThirst.cs" />
+    <Compile Include="VisitBankAndDepositGold.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
