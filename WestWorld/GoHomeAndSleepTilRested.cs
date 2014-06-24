@@ -39,6 +39,12 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Enter(Miner miner)
         {
+            if(miner.LocationType != LocationType.Shack)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("{0}: Walkin' home", miner.Name);
+                miner.LocationType = LocationType.Shack;
+            }
         }
 
         /// <summary>
@@ -47,6 +53,22 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Execute(Miner miner)
         {
+            // If miner is not fatigued start to dig for nuggets again.
+            if(!miner.Fatigued())
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("{0}: What a God darn fantastic nap! Time to find more gold", miner.Name);
+
+                miner.ChangeState(EnterMineAndDigForNugget.Instance);
+            }
+            else
+            {
+                // Sleep.
+                miner.DecreaseFatigue();
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("{0}: ZZZZ...", miner.Name);
+            }
         }
 
         /// <summary>
@@ -55,6 +77,8 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Exit(Miner miner)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("{0}: Leaving the house", miner.Name);
         }
     }
 }

@@ -39,6 +39,17 @@ namespace WestWorld
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return ((EntityType)ID).ToString();
+            }
+        }
+
+        /// <summary>
         /// This is the next valid ID.
         /// </summary>
         /// <remarks>
