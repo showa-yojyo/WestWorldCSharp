@@ -14,22 +14,22 @@ namespace WestWorld
         /// <summary>
         /// the amount of gold a miner must have before he feels comfortable
         /// </summary>
-        public readonly int ComfortLevel = 5;
+        public static readonly int ComfortLevel = 5;
 
         /// <summary>
         /// the amount of nuggets a miner can carry
         /// </summary>
-        public readonly int MaxNuggets = 3;
+        public static readonly int MaxNuggets = 3;
 
         /// <summary>
         /// above this value a miner is thirsty
         /// </summary>
-        public readonly int ThirstLevel = 5;
+        public static readonly int ThirstLevel = 5;
 
         /// <summary>
         /// above this value a miner is sleepy
         /// </summary>
-        public readonly int TirednessThreshold = 5;
+        public static readonly int TirednessThreshold = 5;
 
         /// <summary>
         /// TODO

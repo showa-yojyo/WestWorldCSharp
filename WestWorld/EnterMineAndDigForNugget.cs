@@ -86,7 +86,7 @@ namespace WestWorld
         public void Exit(Miner miner)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("{0}: Ah'm leavin' the goldmine with mah pockets full o' sweet gold");
+            Console.WriteLine("{0}: Ah'm leavin' the goldmine with mah pockets full o' sweet gold", miner.Name);
         }
     }
 }

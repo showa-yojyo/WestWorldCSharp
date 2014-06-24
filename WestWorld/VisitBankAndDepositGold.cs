@@ -3,10 +3,6 @@
 //   (http://www.jblearning.com/catalog/9781556220784/)
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WestWorld
 {
@@ -42,6 +38,13 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Enter(Miner miner)
         {
+            // On entry the miner makes sure he is located at the bank.
+            if(miner.Location != LocationType.Bank)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("{0}: Goin' to the bank. Yes siree", miner.Name);
+                miner.Location = LocationType.Bank;
+            }
         }
 
         /// <summary>
@@ -50,6 +53,26 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Execute(Miner miner)
         {
+            // Deposit the gold.
+            miner.Wealth += miner.GoldCarried;
+            miner.GoldCarried = 0;
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("{0}: Depositing gold. Total savings now: {1}", miner.Name, miner.Wealth);
+            
+            // Wealthy enough to have a well earned rest?
+            if(miner.Wealth >= Miner.ComfortLevel)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("{0}: WooHoo! Rich enough for now. Back home to mah li'lle lady", miner.Name);
+
+                miner.ChangeState(GoHomeAndSleepTilRested.Instance);
+            }
+            // Otherwise get more gold.
+            else 
+            {
+                miner.ChangeState(EnterMineAndDigForNugget.Instance);
+            }
         }
 
         /// <summary>
@@ -58,6 +81,8 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Exit(Miner miner)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("{0}: Leavin' the bank", miner.Name);
         }
     }
 }
