@@ -2,6 +2,7 @@
 //   Programming Game AI by Example, Mat Buckland, 2002.
 //   (http://www.jblearning.com/catalog/9781556220784/)
 
+using System;
 using System.Diagnostics;
 
 namespace WestWorld
@@ -32,12 +33,12 @@ namespace WestWorld
         public static readonly int TirednessThreshold = 5;
 
         /// <summary>
-        /// TODO
+        /// An instance of the state machine class.
         /// </summary>
-        private IState<Miner> CurrentState { get; set; }
+        public StateMachine<Miner> StateMachine { get; private set; }
 
         /// <summary>
-        /// 
+        /// Where the miner is.
         /// </summary>
         public LocationType Location { get; set; }
 
@@ -59,7 +60,6 @@ namespace WestWorld
                 Debug.Assert(0 <= goldCarried);
             }
         }
-
 
         private int moneyInBank;
 
@@ -98,7 +98,9 @@ namespace WestWorld
             : base(id)
         {
             Location = LocationType.Shack;
-            CurrentState = GoHomeAndSleepTilRested.Instance;
+
+            StateMachine = new StateMachine<Miner>(this);
+            StateMachine.CurrentState = GoHomeAndSleepTilRested.Instance;
         }
 
         /// <summary>
@@ -107,37 +109,8 @@ namespace WestWorld
         public override void Update()
         {
             ++Thirst;
-
-            if(CurrentState != null)
-            {
-                CurrentState.Execute(this);
-            }
-        }
-
-        /// <summary>
-        /// This method changes the current state to the new state.
-        /// </summary>
-        /// <param name="state"></param>
-        /// <remarks>
-        ///  It first calls the Exit() method of the current state, then assigns the
-        ///  new state to CurrentState and finally calls the Entry()
-        ///  method of the new state.
-        ///</remarks>
-        public void ChangeState(IState<Miner> state)
-        {
-            // make sure both states are both valid before attempting to 
-            // call their methods
-            Debug.Assert(CurrentState != null);
-            Debug.Assert(state != null);
-
-            // call the exit method of the existing state
-            CurrentState.Exit(this);
-
-            // change state to the new state
-            CurrentState = state;
-
-            // call the entry method of the new state
-            CurrentState.Enter(this);
+            Console.ForegroundColor = ConsoleColor.Red;
+            StateMachine.Update();
         }
 
         //public void AddToGoldCarried(int val)

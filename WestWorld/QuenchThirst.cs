@@ -36,7 +36,6 @@ namespace WestWorld
         {
             if(miner.Location != LocationType.Saloon)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("{0}: Boy, ah sure is thusty! Walking to the saloon", miner.Name);
                 miner.Location = LocationType.Saloon;
             }
@@ -51,15 +50,12 @@ namespace WestWorld
             if(miner.Thirsty())
             {
                 miner.BuyAndDrinkAWhiskey();
-
-                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("{0}: That's mighty fine sippin liquer", miner.Name);
 
-                miner.ChangeState(EnterMineAndDigForNugget.Instance);
+                miner.StateMachine.ChangeState(EnterMineAndDigForNugget.Instance);
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("ERROR! ERROR! ERROR!");
             }
         }
@@ -70,7 +66,6 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Exit(Miner miner)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("{0}: Leaving the saloon, feelin' good", miner.Name);
         }
     }

@@ -44,7 +44,6 @@ namespace WestWorld
             // change location to the gold mine
             if(miner.Location != LocationType.Goldmine)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("{0}: Walkin' to the goldmine", miner.Name);
 
                 miner.Location = LocationType.Goldmine;
@@ -64,18 +63,17 @@ namespace WestWorld
 
             miner.IncreaseFatigue();
 
-            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("{0}: Pickin' up a nugget", miner.Name);
 
             // If enough gold mined, go and put it in the bank.
             if(miner.PocketsFull())
             {
-                miner.ChangeState(VisitBankAndDepositGold.Instance);
+                miner.StateMachine.ChangeState(VisitBankAndDepositGold.Instance);
             }
 
             if(miner.Thirsty())
             {
-                miner.ChangeState(QuenchThirst.Instance);
+                miner.StateMachine.ChangeState(QuenchThirst.Instance);
             }
         }
 
@@ -85,7 +83,6 @@ namespace WestWorld
         /// <param name="miner"></param>
         public void Exit(Miner miner)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("{0}: Ah'm leavin' the goldmine with mah pockets full o' sweet gold", miner.Name);
         }
     }
