@@ -10,7 +10,7 @@ namespace WestWorld
     /// A miner will go home and sleep until his fatigue is decreased
     //  sufficiently.
     /// </summary>
-    public sealed class GoHomeAndSleepTilRested : IState
+    public sealed class GoHomeAndSleepTilRested : IState<Miner>
     {
         private static readonly GoHomeAndSleepTilRested instance = new GoHomeAndSleepTilRested();
 

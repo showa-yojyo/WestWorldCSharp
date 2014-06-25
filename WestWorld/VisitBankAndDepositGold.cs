@@ -13,7 +13,7 @@ namespace WestWorld
     /// If the miner is subsequently wealthy enough he'll walk home, otherwise he'll
     /// keep going to get more gold.
     /// </remarks>
-    public sealed class VisitBankAndDepositGold : IState
+    public sealed class VisitBankAndDepositGold : IState<Miner>
     {
         private static readonly VisitBankAndDepositGold instance = new VisitBankAndDepositGold();
 

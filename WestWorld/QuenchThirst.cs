@@ -9,7 +9,7 @@ namespace WestWorld
     /// <summary>
     /// TODO
     /// </summary>
-    public sealed class QuenchThirst : IState
+    public sealed class QuenchThirst : IState<Miner>
     {
         private static readonly QuenchThirst instance = new QuenchThirst();
 

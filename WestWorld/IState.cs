@@ -7,24 +7,24 @@ namespace WestWorld
     /// <summary>
     /// Interface to define an interface for a state.
     /// </summary>
-    public interface IState
+    public interface IState<T>
     {
         /// <summary>
         /// This will execute when the state is entered.
         /// </summary>
-        /// <param name="miner"></param>
-        void Enter(Miner miner);
+        /// <param name="context"></param>
+        void Enter(T context);
 
         /// <summary>
         /// This is the state's normal update function.
         /// </summary>
-        /// <param name="miner"></param>
-        void Execute(Miner miner);
+        /// <param name="context"></param>
+        void Execute(T context);
 
         /// <summary>
         /// This will execute when the state is exited.
         /// </summary>
-        /// <param name="miner"></param>
-        void Exit(Miner miner);
+        /// <param name="context"></param>
+        void Exit(T context);
     }
 }

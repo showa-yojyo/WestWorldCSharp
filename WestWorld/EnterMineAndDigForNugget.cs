@@ -15,7 +15,7 @@ namespace WestWorld
     /// to VisitBankAndDepositGold. If he gets thirsty he'll change state
     /// to QuenchThirst.
     /// </remarks>
-    public sealed class EnterMineAndDigForNugget : IState
+    public sealed class EnterMineAndDigForNugget : IState<Miner>
     {
         private static readonly EnterMineAndDigForNugget instance = new EnterMineAndDigForNugget();
 

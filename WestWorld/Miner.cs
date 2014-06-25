@@ -34,7 +34,7 @@ namespace WestWorld
         /// <summary>
         /// TODO
         /// </summary>
-        private IState CurrentState { get; set; }
+        private IState<Miner> CurrentState { get; set; }
 
         /// <summary>
         /// 
@@ -123,7 +123,7 @@ namespace WestWorld
         ///  new state to CurrentState and finally calls the Entry()
         ///  method of the new state.
         ///</remarks>
-        public void ChangeState(IState state)
+        public void ChangeState(IState<Miner> state)
         {
             // make sure both states are both valid before attempting to 
             // call their methods
