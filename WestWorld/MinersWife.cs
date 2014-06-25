@@ -1,0 +1,48 @@
+﻿// Original author:
+//   Programming Game AI by Example, Mat Buckland, 2002.
+//   (http://www.jblearning.com/catalog/9781556220784/)
+
+using System;
+
+namespace WestWorld
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public class MinersWife : BaseGameEntity
+    {
+        /// <summary>
+        /// An instance of the state machine class.
+        /// </summary>
+        public StateMachine<MinersWife> StateMachine { get; private set; }
+
+        /// <summary>
+        /// Where the miner is.
+        /// </summary>
+        public LocationType Location { get; set; }
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="id"></param>
+        public MinersWife(int id)
+            : base(id)
+        {
+            Location = LocationType.Shack;
+
+            StateMachine = new StateMachine<MinersWife>(this);
+            // TODO
+            //StateMachine.CurrentState = ...;
+            //StateMachine.GlobalState = ...;
+        }
+
+        /// <summary>
+        /// This must be implemented.
+        /// </summary>
+        public override void Update()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            StateMachine.Update();
+        }
+    }
+}

@@ -15,12 +15,16 @@ namespace WestWorld
         static void Main(string[] args)
         {
             // Create a miner.
-            Miner miner = new Miner((int)EntityType.MinerBob); // TODO: This cast is strange.
+            Miner Bob = new Miner((int)EntityType.MinerBob); // TODO: This cast is strange.
+            
+            // Create his wife.
+            MinersWife Elsa = new MinersWife((int)EntityType.Elsa); // TODO: This cast is strange.
 
-            // Simply run the miner through a few Update calls.
+            // Simply run Bob and Elsa through a few Update calls.
             for(int i = 0; i < 20; ++i)
             {
-                miner.Update();
+                Bob.Update();
+                Elsa.Update();
                 Thread.Sleep(800);
             }
 
