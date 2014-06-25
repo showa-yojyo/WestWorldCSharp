@@ -31,9 +31,8 @@ namespace WestWorld
             Location = LocationType.Shack;
 
             StateMachine = new StateMachine<MinersWife>(this);
-            // TODO
-            //StateMachine.CurrentState = ...;
-            //StateMachine.GlobalState = ...;
+            StateMachine.CurrentState = DoHouseWork.Instance;
+            StateMachine.GlobalState = WifesGlobalState.Instance;
         }
 
         /// <summary>

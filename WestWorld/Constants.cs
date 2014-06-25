@@ -20,7 +20,7 @@ namespace WestWorld
     /// </summary>
     public enum EntityType
     {
-        MinerBob,
+        Bob,
         Elsa,
     };
 

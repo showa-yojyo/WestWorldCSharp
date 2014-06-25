@@ -15,7 +15,7 @@ namespace WestWorld
         static void Main(string[] args)
         {
             // Create a miner.
-            Miner Bob = new Miner((int)EntityType.MinerBob); // TODO: This cast is strange.
+            Miner Bob = new Miner((int)EntityType.Bob); // TODO: This cast is strange.
             
             // Create his wife.
             MinersWife Elsa = new MinersWife((int)EntityType.Elsa); // TODO: This cast is strange.
