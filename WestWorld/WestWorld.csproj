@@ -45,6 +45,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="DoHouseWork.cs" />
     <Compile Include="EnterMineAndDigForNugget.cs" />
+    <Compile Include="Game\EntityManager.cs" />
     <Compile Include="GoHomeAndSleepTilRested.cs" />
     <Compile Include="IState.cs" />
     <Compile Include="Messaging\Telegram.cs" />
