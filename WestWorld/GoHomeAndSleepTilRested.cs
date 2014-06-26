@@ -6,6 +6,9 @@ using System;
 
 namespace WestWorld
 {
+    using FSM;
+    using Messaging;
+
     /// <summary>
     /// A miner will go home and sleep until his fatigue is decreased
     //  sufficiently.
@@ -78,7 +81,7 @@ namespace WestWorld
         /// <param name="miner"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public bool OnMessage(Miner miner, Messaging.Telegram message)
+        public bool OnMessage(Miner miner, Telegram message)
         {
             return true;
         }

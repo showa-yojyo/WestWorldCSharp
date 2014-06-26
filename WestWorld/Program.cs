@@ -7,6 +7,9 @@ using System.Threading;
 
 namespace WestWorld
 {
+    using Game;
+    using Messaging;
+
     /// <summary>
     /// This class corresponds to main.cpp in the original C++ WestWorld project.
     /// </summary>
@@ -24,11 +27,11 @@ namespace WestWorld
             MinersWife Elsa = new MinersWife((int)EntityType.Elsa); // TODO: This cast is strange.
 
             //register them with the entity manager
-            var mgr = Game.EntityManager.Instance;
+            var mgr = EntityManager.Instance;
             mgr.RegisterEntity(Bob);
             mgr.RegisterEntity(Elsa);
 
-            var dispatcher = Messaging.MessageDispatcher.Instance;
+            var dispatcher = MessageDispatcher.Instance;
 
             // Simply run Bob and Elsa through a few Update calls.
             for(int i = 0; i < 20; ++i)

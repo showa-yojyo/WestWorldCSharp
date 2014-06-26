@@ -4,8 +4,10 @@
 
 using System.Diagnostics;
 
-namespace WestWorld
+namespace WestWorld.FSM
 {
+    using Messaging;
+
     /// <summary>
     /// State machine class. 
     /// </summary>
@@ -71,7 +73,7 @@ namespace WestWorld
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public bool HandleMessage(Messaging.Telegram message)
+        public bool HandleMessage(Telegram message)
         {
             // First see if the current state is valid and that it can handle
             // the message.

@@ -6,6 +6,9 @@ using System;
 
 namespace WestWorld
 {
+    using FSM;
+    using Messaging;
+
     /// <summary>
     /// 
     /// </summary>
@@ -62,9 +65,9 @@ namespace WestWorld
         /// <param name="wife"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public bool OnMessage(MinersWife wife, Messaging.Telegram message)
+        public bool OnMessage(MinersWife wife, Telegram message)
         {
-            return true;
+            return false;
         }
     }
 }

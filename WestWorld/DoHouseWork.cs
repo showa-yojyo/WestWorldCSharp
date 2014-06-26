@@ -3,13 +3,12 @@
 //   (http://www.jblearning.com/catalog/9781556220784/)
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WestWorld
 {
+    using FSM;
+    using Messaging;
+
     /// <summary>
     /// 
     /// </summary>
@@ -77,9 +76,9 @@ namespace WestWorld
         /// <param name="wife"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public bool OnMessage(MinersWife wife, Messaging.Telegram message)
+        public bool OnMessage(MinersWife wife, Telegram message)
         {
-            return true;
+            return false;
         }
     }
 }

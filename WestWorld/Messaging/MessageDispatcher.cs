@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 namespace WestWorld.Messaging
 {
+    using Game;
+
     /// <summary>
     /// A message dispatcher. Manages messages of the type Telegram.
     /// Instantiated as a singleton.
@@ -61,7 +63,7 @@ namespace WestWorld.Messaging
             object info)
         {
             // Get to the receiver
-            var recieverEnt = Game.EntityManager.Instance.GetEntityFromID(receiver);
+            var recieverEnt = EntityManager.Instance.GetEntityFromID(receiver);
 
             // Make sure the receiver is valid
             if(recieverEnt == null)
@@ -110,7 +112,7 @@ namespace WestWorld.Messaging
             // First get current time
             double CurrentTime = 0.0; // TODO: TickCounter->GetCurrentFrame();
 
-            var mgr = Game.EntityManager.Instance;
+            var mgr = EntityManager.Instance;
 
             // Now peek at the queue to see if any telegrams need dispatching.
             // Remove all telegrams from the front of the queue that have gone

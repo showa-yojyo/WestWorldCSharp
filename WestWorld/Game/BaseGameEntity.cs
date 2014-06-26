@@ -6,6 +6,8 @@ using System.Diagnostics;
 
 namespace WestWorld
 {
+    using Messaging;
+
     /// <summary>
     /// Base class for a game object.
     /// </summary>
@@ -81,6 +83,6 @@ namespace WestWorld
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public abstract bool HandleMessage(Messaging.Telegram message);
+        public abstract bool HandleMessage(Telegram message);
     }
 }

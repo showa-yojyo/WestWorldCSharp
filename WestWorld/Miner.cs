@@ -7,6 +7,9 @@ using System.Diagnostics;
 
 namespace WestWorld
 {
+    using FSM;
+    using Messaging;
+
     /// <summary>
     /// A class defining a goldminer.
     /// </summary>
@@ -119,7 +122,7 @@ namespace WestWorld
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public override bool HandleMessage(Messaging.Telegram message)
+        public override bool HandleMessage(Telegram message)
         {
             return StateMachine.HandleMessage(message);
         }

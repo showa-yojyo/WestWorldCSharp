@@ -41,13 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseGameEntity.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DoHouseWork.cs" />
     <Compile Include="EnterMineAndDigForNugget.cs" />
+    <Compile Include="FSM\IState.cs" />
+    <Compile Include="FSM\StateMachine.cs" />
+    <Compile Include="Game\BaseGameEntity.cs" />
     <Compile Include="Game\EntityManager.cs" />
     <Compile Include="GoHomeAndSleepTilRested.cs" />
-    <Compile Include="IState.cs" />
     <Compile Include="Messaging\MessageDispatcher.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -57,7 +58,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuenchThirst.cs" />
-    <Compile Include="StateMachine.cs" />
     <Compile Include="VisitBankAndDepositGold.cs" />
     <Compile Include="VisitBathroom.cs" />
     <Compile Include="WifesGlobalState.cs" />

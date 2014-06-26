@@ -2,8 +2,10 @@
 //   Programming Game AI by Example, Mat Buckland, 2002.
 //   (http://www.jblearning.com/catalog/9781556220784/)
 
-namespace WestWorld
+namespace WestWorld.FSM
 {
+    using Messaging;
+
     /// <summary>
     /// Interface to define an interface for a state.
     /// </summary>
@@ -33,6 +35,6 @@ namespace WestWorld
         /// <param name="context"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        bool OnMessage(T context, Messaging.Telegram message);
+        bool OnMessage(T context, Telegram message);
     }
 }

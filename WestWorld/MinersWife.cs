@@ -6,6 +6,9 @@ using System;
 
 namespace WestWorld
 {
+    using FSM;
+    using Messaging;
+
     /// <summary>
     /// 
     /// </summary>
@@ -50,7 +53,7 @@ namespace WestWorld
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public override bool HandleMessage(Messaging.Telegram message)
+        public override bool HandleMessage(Telegram message)
         {
             return StateMachine.HandleMessage(message);
         }
