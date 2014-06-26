@@ -74,5 +74,13 @@ namespace WestWorld
         /// All entities must implement an update function.
         /// </summary>
         public abstract void Update();
+
+        /// <summary>
+        /// All entities can communicate using messages. They are sent
+        /// using the MessageDispatcher singleton class
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public abstract bool HandleMessage(Messaging.Telegram message);
     }
 }

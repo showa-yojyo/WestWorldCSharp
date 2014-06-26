@@ -43,5 +43,16 @@ namespace WestWorld
             Console.ForegroundColor = ConsoleColor.Green;
             StateMachine.Update();
         }
+
+        /// <summary>
+        /// All entities can communicate using messages. They are sent
+        /// using the MessageDispatcher singleton class
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public override bool HandleMessage(Messaging.Telegram message)
+        {
+            return StateMachine.HandleMessage(message);
+        }
     }
 }

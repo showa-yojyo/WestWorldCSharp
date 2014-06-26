@@ -14,17 +14,31 @@ namespace WestWorld
     {
         static void Main(string[] args)
         {
+            // TODO: Seed random number generator.
+
+
             // Create a miner.
             Miner Bob = new Miner((int)EntityType.Bob); // TODO: This cast is strange.
             
             // Create his wife.
             MinersWife Elsa = new MinersWife((int)EntityType.Elsa); // TODO: This cast is strange.
 
+            //register them with the entity manager
+            var mgr = Game.EntityManager.Instance;
+            mgr.RegisterEntity(Bob);
+            mgr.RegisterEntity(Elsa);
+
+            var dispatcher = Messaging.MessageDispatcher.Instance;
+
             // Simply run Bob and Elsa through a few Update calls.
             for(int i = 0; i < 20; ++i)
             {
                 Bob.Update();
                 Elsa.Update();
+
+                // Dispatch any delayed messages
+                dispatcher.DispatchDelayedMessages();
+
                 Thread.Sleep(800);
             }
 
