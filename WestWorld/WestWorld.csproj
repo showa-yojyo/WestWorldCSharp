@@ -48,6 +48,9 @@
     <Compile Include="Game\EntityManager.cs" />
     <Compile Include="GoHomeAndSleepTilRested.cs" />
     <Compile Include="IState.cs" />
+    <Compile Include="Messaging\MessageDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Messaging\Telegram.cs" />
     <Compile Include="Miner.cs" />
     <Compile Include="MinersWife.cs" />

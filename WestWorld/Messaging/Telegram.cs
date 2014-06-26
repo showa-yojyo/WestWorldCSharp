@@ -9,7 +9,7 @@ namespace WestWorld.Messaging
     /// records information required to dispatch messages. Messages 
     /// are used by game agents to communicate with each other.
     /// </summary>
-    public class Telegram
+    public class Telegram// : System.Object
     {
         /// <summary>
         /// The entity that sent this telegram.
