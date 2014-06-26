@@ -26,5 +26,13 @@ namespace WestWorld
         /// </summary>
         /// <param name="context"></param>
         void Exit(T context);
+
+        /// <summary>
+        /// This executes if the agent receives a message from the message dispatcher.
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        bool OnMessage(T context, Messaging.Telegram message);
     }
 }

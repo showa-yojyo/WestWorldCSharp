@@ -80,5 +80,16 @@ namespace WestWorld
         {
             Console.WriteLine("{0}: Leavin' the bank", miner.Name);
         }
+
+        /// <summary>
+        /// This executes if the agent receives a message from the message dispatcher.
+        /// </summary>
+        /// <param name="miner"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public bool OnMessage(Miner miner, Messaging.Telegram message)
+        {
+            return true;
+        }
     }
 }

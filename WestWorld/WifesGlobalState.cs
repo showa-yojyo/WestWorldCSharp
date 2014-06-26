@@ -59,5 +59,16 @@ namespace WestWorld
         {
             // NOP
         }
+
+        /// <summary>
+        /// This executes if the agent receives a message from the message dispatcher.
+        /// </summary>
+        /// <param name="wife"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public bool OnMessage(MinersWife wife, Messaging.Telegram message)
+        {
+            return true;
+        }
     }
 }

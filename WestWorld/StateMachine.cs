@@ -67,6 +67,30 @@ namespace WestWorld
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public bool HandleMessage(Messaging.Telegram message)
+        {
+            // First see if the current state is valid and that it can handle
+            // the message.
+            if(CurrentState != null && CurrentState.OnMessage(Owner, message))
+            {
+                return true;
+            }
+
+            // If not, and if a global state has been implemented, send 
+            // the message to the global state
+            if(GlobalState != null && GlobalState.OnMessage(Owner, message))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// Change to a new state.
         /// </summary>
         /// <param name="state">New state.</param>
