@@ -25,4 +25,15 @@ namespace WestWorld
     };
 
     // Function GetNameOfEntity is not needed in C# (use EntityType.ToString).
+
+    /// <summary>
+    /// From MessageTypes.h
+    /// </summary>
+    public enum MessageType
+    {
+        HiHoneyImHome,
+        StewReady,
+    };
+
+    // Function MsgToStr is not needed in C# (use MessageType.ToString).
 }
