@@ -47,6 +47,7 @@
     <Compile Include="EnterMineAndDigForNugget.cs" />
     <Compile Include="GoHomeAndSleepTilRested.cs" />
     <Compile Include="IState.cs" />
+    <Compile Include="Messaging\Telegram.cs" />
     <Compile Include="Miner.cs" />
     <Compile Include="MinersWife.cs" />
     <Compile Include="Program.cs" />
