@@ -46,6 +46,11 @@ namespace WestWorld
         /// <param name="wife"></param>
         public void Execute(MinersWife wife)
         {
+            if(wife.StateMachine.IsInState(VisitBathroom.Instance))
+            {
+                return;
+            }
+
             // 1 in 10 chance of needing the bathroom.
             var rand = new Random(Environment.TickCount);
             if(rand.Next(10) == 0)
@@ -71,7 +76,20 @@ namespace WestWorld
         /// <returns></returns>
         public bool OnMessage(MinersWife wife, Telegram message)
         {
-            return true;
+            //Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+
+            switch(message.Message)
+            {
+            case MessageType.HiHoneyImHome:
+                Console.WriteLine("Message handled by {0} at time: {1}", wife.Name, 1e-3 * Environment.TickCount);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("{0}: Hi honey. Let me make you some of mah fine country stew", wife.Name);
+                wife.StateMachine.ChangeState(CookStew.Instance);
+                return true;
+            }
+
+            return false;
         }
     }
 }

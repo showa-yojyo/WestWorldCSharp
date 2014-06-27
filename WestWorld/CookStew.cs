@@ -40,7 +40,7 @@ namespace WestWorld
             // If not already cooking put the stew in the oven.
             if(!wife.Cooking)
             {
-                Console.WriteLine("{0} : Putting the stew in the oven", wife.Name);
+                Console.WriteLine("{0}: Putting the stew in the oven", wife.Name);
 
                 // Send a delayed message myself so that I know when to take the stew
                 // out of the oven.
@@ -83,12 +83,12 @@ namespace WestWorld
         public bool OnMessage(MinersWife wife, Telegram message)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.Red;
+            //Console.BackgroundColor = ConsoleColor.Red;
 
             switch(message.Message)
             {
             case MessageType.StewReady:
-                Console.WriteLine("Message received by {0} at time: {1}", wife.Name, "TODO");
+                Console.WriteLine("Message received by {0} at time: {1}", wife.Name, 1e-3 * Environment.TickCount);
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("{0}: StewReady! Lets eat", wife.Name);
 

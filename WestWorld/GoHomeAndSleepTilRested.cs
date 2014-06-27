@@ -91,13 +91,13 @@ namespace WestWorld
         /// <returns></returns>
         public bool OnMessage(Miner miner, Telegram message)
         {
-            Console.BackgroundColor = ConsoleColor.Red;
+            //Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.White;
 
             switch(message.Message)
             {
             case MessageType.StewReady:
-                Console.WriteLine("Message handled by {0} at time: {1}", miner.Name, "TODO");
+                Console.WriteLine("Message handled by {0} at time: {1}", miner.Name, 1e-3 * Environment.TickCount);
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("{0}: Okay Hun, ahm a comin'!", miner.Name);
                 miner.StateMachine.ChangeState(EatStew.Instance);

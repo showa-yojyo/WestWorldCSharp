@@ -37,7 +37,7 @@ namespace WestWorld
         /// <param name="wife"></param>
         public void Enter(MinersWife wife)
         {
-            Console.WriteLine("{0} : Walkin' to the can. Need to powda mah pretty li'lle nose", wife.Name);
+            Console.WriteLine("{0}: Walkin' to the can. Need to powda mah pretty li'lle nose", wife.Name);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace WestWorld
         /// <param name="wife"></param>
         public void Execute(MinersWife wife)
         {
-            Console.WriteLine("{0} : Ahhhhhh! Sweet relief!", wife.Name);
+            Console.WriteLine("{0}: Ahhhhhh! Sweet relief!", wife.Name);
             wife.StateMachine.RevertToPreviousState();
         }
 
@@ -56,7 +56,7 @@ namespace WestWorld
         /// <param name="wife"></param>
         public void Exit(MinersWife wife)
         {
-            Console.WriteLine("{0} : Leavin' the Jon", wife.Name);
+            Console.WriteLine("{0}: Leavin' the Jon", wife.Name);
         }
 
         /// <summary>

@@ -2,6 +2,7 @@
 //   Programming Game AI by Example, Mat Buckland, 2002.
 //   (http://www.jblearning.com/catalog/9781556220784/)
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -85,7 +86,7 @@ namespace WestWorld.Messaging
             //else calculate the time when the telegram should be dispatched
             else
             {
-                double CurrentTime = 0.0; // TODO: TickCounter->GetCurrentFrame();
+                double CurrentTime = 1e-3 * Environment.TickCount; // in seconds
 
                 telegram.DispatchTime = CurrentTime + delay;
 
@@ -107,7 +108,7 @@ namespace WestWorld.Messaging
         public void DispatchDelayedMessages()
         {
             // First get current time
-            double CurrentTime = 0.0; // TODO: TickCounter->GetCurrentFrame();
+            double CurrentTime = 1e-3 * Environment.TickCount; // in seconds
 
             var mgr = EntityManager.Instance;
 
