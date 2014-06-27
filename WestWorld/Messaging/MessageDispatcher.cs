@@ -2,12 +2,9 @@
 //   Programming Game AI by Example, Mat Buckland, 2002.
 //   (http://www.jblearning.com/catalog/9781556220784/)
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WestWorld.Messaging
 {
@@ -57,9 +54,9 @@ namespace WestWorld.Messaging
         /// <param name="info"></param>
         public void DispatchMessage(
             double delay,
-            int sender,
-            int receiver,
-            int msg,
+            EntityType sender,
+            EntityType receiver,
+            MessageType msg,
             object info)
         {
             // Get to the receiver

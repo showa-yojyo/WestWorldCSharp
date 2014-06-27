@@ -14,17 +14,17 @@ namespace WestWorld.Messaging
         /// <summary>
         /// The entity that sent this telegram.
         /// </summary>
-        public int Sender { get; set; }
+        public EntityType Sender { get; set; }
 
         /// <summary>
         /// The entity that is to receive this telegram.
         /// </summary>
-        public int Receiver { get; set; }
+        public EntityType Receiver { get; set; }
 
         /// <summary>
         /// The message itself.
         /// </summary>
-        public int Message { get; set; }
+        public MessageType Message { get; set; }
 
         /// <summary>
         /// Messages can be dispatched immediately or delayed for a specified amount
@@ -42,7 +42,7 @@ namespace WestWorld.Messaging
         /// The default constructor
         /// </summary>
         public Telegram()
-            : this(-1.0, -1, -1, -1, null)
+            : this(-1.0, EntityType.None, EntityType.None, MessageType.None, null)
         {
         }
 
@@ -56,9 +56,9 @@ namespace WestWorld.Messaging
         /// <param name="info"></param>
         public Telegram(
             double time,
-            int sender,
-            int receiver,
-            int message,
+            EntityType sender,
+            EntityType receiver,
+            MessageType message,
             object info = null)
         {
             DispatchTime = time;

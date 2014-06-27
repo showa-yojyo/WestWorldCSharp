@@ -25,10 +25,15 @@ namespace WestWorld
         public LocationType Location { get; set; }
 
         /// <summary>
+        /// Is she presently cooking?
+        /// </summary>
+        public bool Cooking { get; set; }
+
+        /// <summary>
         /// Constructor.
         /// </summary>
         /// <param name="id"></param>
-        public MinersWife(int id)
+        public MinersWife(EntityType id)
             : base(id)
         {
             Location = LocationType.Shack;

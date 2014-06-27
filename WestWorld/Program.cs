@@ -17,14 +17,11 @@ namespace WestWorld
     {
         static void Main(string[] args)
         {
-            // TODO: Seed random number generator.
-
-
             // Create a miner.
-            Miner Bob = new Miner((int)EntityType.Bob); // TODO: This cast is strange.
+            Miner Bob = new Miner(EntityType.Bob);
             
             // Create his wife.
-            MinersWife Elsa = new MinersWife((int)EntityType.Elsa); // TODO: This cast is strange.
+            MinersWife Elsa = new MinersWife(EntityType.Elsa);
 
             //register them with the entity manager
             var mgr = EntityManager.Instance;

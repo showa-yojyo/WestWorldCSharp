@@ -13,7 +13,7 @@ namespace WestWorld.Game
         /// To facilitate quick lookup the entities are stored in a Dictionary, in which
         /// pointers to entities are cross referenced by their identifying number
         /// </summary>
-        private IDictionary<int, BaseGameEntity> EntityMap = new Dictionary<int, BaseGameEntity>();
+        private IDictionary<EntityType, BaseGameEntity> EntityMap = new Dictionary<EntityType, BaseGameEntity>();
 
         private static readonly EntityManager instance = new EntityManager();
 
@@ -37,7 +37,7 @@ namespace WestWorld.Game
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public BaseGameEntity GetEntityFromID(int id)
+        public BaseGameEntity GetEntityFromID(EntityType id)
         {
             BaseGameEntity entity = null;
             if(!EntityMap.TryGetValue(id, out entity))

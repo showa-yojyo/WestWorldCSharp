@@ -97,7 +97,7 @@ namespace WestWorld
         /// Constructor.
         /// </summary>
         /// <param name="id"></param>
-        public Miner(int id)
+        public Miner(EntityType id)
             : base(id)
         {
             Location = LocationType.Shack;
