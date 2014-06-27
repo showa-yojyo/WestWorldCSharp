@@ -31,6 +31,7 @@ namespace WestWorld.Messaging
         /// of time. If a delay is necessary this field is stamped with the time 
         /// the message should be dispatched.
         /// </summary>
+        /// <remarks>In seconds (not miliseconds)</remarks>
         public double DispatchTime { get; set; }
 
         /// <summary>
@@ -64,6 +65,7 @@ namespace WestWorld.Messaging
             DispatchTime = time;
             Sender = sender;
             Receiver = receiver;
+            Message = message;
             ExtraInfo = info;
         }
     }
