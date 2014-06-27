@@ -42,6 +42,14 @@ namespace WestWorld
             {
                 Console.WriteLine("{0}: Walkin' home", miner.Name);
                 miner.Location = LocationType.Shack;
+
+                // Let the wife know I'm home.
+                MessageDispatcher.Instance.DispatchMessage(
+                    MessageDispatcher.SEND_MSG_IMMEDIATELY, // time delay
+                    miner.ID, // ID of sender
+                    EntityType.Elsa, // ID of recipient
+                    MessageType.HiHoneyImHome, // the message
+                    MessageDispatcher.NO_ADDITIONAL_INFO);    
             }
         }
 
@@ -83,7 +91,21 @@ namespace WestWorld
         /// <returns></returns>
         public bool OnMessage(Miner miner, Telegram message)
         {
-            return true;
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+
+            switch(message.Message)
+            {
+            case MessageType.StewReady:
+                Console.WriteLine("Message handled by {0} at time: {1}", miner.Name, "TODO");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("{0}: Okay Hun, ahm a comin'!", miner.Name);
+                miner.StateMachine.ChangeState(EatStew.Instance);
+                return true;
+            } // end switch
+
+            // Send message to global message handler
+            return false;
         }
     }
 }

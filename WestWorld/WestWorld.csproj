@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="CookStew.cs" />
     <Compile Include="DoHouseWork.cs" />
+    <Compile Include="EatStew.cs" />
     <Compile Include="EnterMineAndDigForNugget.cs" />
     <Compile Include="FSM\IState.cs" />
     <Compile Include="FSM\StateMachine.cs" />
