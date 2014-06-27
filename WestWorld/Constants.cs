@@ -9,6 +9,7 @@ namespace WestWorld
     /// </summary>
     public enum LocationType
     {
+        None = -1,
         Shack,
         Goldmine,
         Bank,
@@ -20,6 +21,7 @@ namespace WestWorld
     /// </summary>
     public enum EntityType
     {
+        None = -1,
         Bob,
         Elsa,
     };
@@ -31,6 +33,7 @@ namespace WestWorld
     /// </summary>
     public enum MessageType
     {
+        None = -1,
         HiHoneyImHome,
         StewReady,
     };
