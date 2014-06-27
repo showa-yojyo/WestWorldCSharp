@@ -47,7 +47,7 @@ namespace WestWorld
         public void Execute(MinersWife wife)
         {
             // 1 in 10 chance of needing the bathroom.
-            var rand = new Random();
+            var rand = new Random(Environment.TickCount);
             if(rand.Next(10) == 0)
             {
                 wife.StateMachine.ChangeState(VisitBathroom.Instance);

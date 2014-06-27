@@ -46,7 +46,7 @@ namespace WestWorld
         /// <param name="wife"></param>
         public void Execute(MinersWife wife)
         {
-            var rand = new Random();
+            var rand = new Random(Environment.TickCount);
             switch(rand.Next(3))
             {
             case 0:
