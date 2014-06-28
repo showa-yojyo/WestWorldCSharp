@@ -23,7 +23,7 @@ namespace WestWorld
             // Create his wife.
             MinersWife Elsa = new MinersWife(EntityType.Elsa);
 
-            //register them with the entity manager
+            // Register them with the entity manager
             var mgr = EntityManager.Instance;
             mgr.RegisterEntity(Bob);
             mgr.RegisterEntity(Elsa);
@@ -31,7 +31,7 @@ namespace WestWorld
             var dispatcher = MessageDispatcher.Instance;
 
             // Simply run Bob and Elsa through a few Update calls.
-            for(int i = 0; i < 20; ++i)
+            for(var i = 0; i < 20; ++i)
             {
                 Bob.Update();
                 Elsa.Update();
