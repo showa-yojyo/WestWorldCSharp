@@ -3,6 +3,7 @@
 //   (http://www.jblearning.com/catalog/9781556220784/)
 
 using System;
+using System.Linq;
 using System.Threading;
 
 namespace WestWorld
@@ -18,10 +19,10 @@ namespace WestWorld
         static void Main(string[] args)
         {
             // Create a miner.
-            Miner Bob = new Miner(EntityType.Bob);
+            var Bob = new Miner(EntityType.Bob);
             
             // Create his wife.
-            MinersWife Elsa = new MinersWife(EntityType.Elsa);
+            var Elsa = new MinersWife(EntityType.Elsa);
 
             // Register them with the entity manager
             var mgr = EntityManager.Instance;
@@ -31,7 +32,7 @@ namespace WestWorld
             var dispatcher = MessageDispatcher.Instance;
 
             // Simply run Bob and Elsa through a few Update calls.
-            for(var i = 0; i < 20; ++i)
+            foreach(var i in Enumerable.Range(0, 20))
             {
                 Bob.Update();
                 Elsa.Update();
